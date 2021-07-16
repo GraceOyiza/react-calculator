@@ -31,7 +31,7 @@ function App() {
         <div className="App__calculator">
           <Display />
           <ButtonPannel>
-            {buttons.map((button) => (
+            {buttons.map(button => (
               <Button key={button} name={button} />
             ))}
           </ButtonPannel>

@@ -15,11 +15,11 @@ export default function Button({ name, operator, actionBtn }) {
 
 Button.defaultProps = {
   operator: false,
-  acBtn: false,
+  actionBtn: false,
 };
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
   operator: PropTypes.bool,
-  acBtn: PropTypes.bool,
+  actionBtn: PropTypes.bool,
 };

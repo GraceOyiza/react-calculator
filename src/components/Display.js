@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function Display({ memorized, current }) {
   return (
     <div className="display">
