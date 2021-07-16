@@ -6,3 +6,8 @@ export default function Display({ memorized, current }) {
     </div>
   );
 }
+
+Display.propTypes = {
+  memorized: PropTypes.string,
+  current: PropTypes.string,
+};
