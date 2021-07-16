@@ -1,20 +1,20 @@
 import PropTypes from 'prop-types';
 
-export default function Display({ memorized, current }) {
+export default function Display({ memor, current }) {
   return (
     <div className="display">
-      <div className="display_upper">{memorized}</div>
-      <div className="display_lower">{current}</div>
+      <div className="displayupper">{memor}</div>
+      <div className="displaylower">{current}</div>
     </div>
   );
 }
 
 Display.defaultProps = {
-  memorized: '',
+  memor: '',
   current: '0',
 };
 
 Display.propTypes = {
-  memorized: PropTypes.string,
+  memor: PropTypes.string,
   current: PropTypes.string,
 };
