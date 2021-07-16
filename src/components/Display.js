@@ -7,6 +7,11 @@ export default function Display({ memorized, current }) {
   );
 }
 
+Display.defaultProps = {
+  memorized: '',
+  current: '0',
+};
+
 Display.propTypes = {
   memorized: PropTypes.string,
   current: PropTypes.string,
