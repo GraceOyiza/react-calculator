@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <div className="App__calculator">
+        <div className="Appcalculator">
           <Display />
           <ButtonPannel>
             {buttons.map(button => (
