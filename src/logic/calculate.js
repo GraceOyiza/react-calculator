@@ -18,6 +18,18 @@ const calculate = (calculator, btn) => {
       next += btn;
     }
   }
+
+  if (operators.includes(btn)) {
+    if ((!prev || prev === '0') && total) {
+      prev = total;
+      total = null;
+    } else if (next) {
+      prev = operate(prev, next, operator).toString();
+      next = '0';
+      total = null;
+    }
+    operator = btn;
+  }
 };
 
 export default calculate;
