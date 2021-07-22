@@ -1,4 +1,5 @@
 import operate from './operate';
+import formatNumber from '../helpers/number';
 
 const calculate = (calculator, btn) => {
   let { total, next, operator, prev } = calculator;
@@ -76,6 +77,13 @@ const calculate = (calculator, btn) => {
     prev = '0';
     total = null;
   }
+
+  return {
+    total,
+    next,
+    operator,
+    prev,
+  };
 };
 
 export default calculate;
