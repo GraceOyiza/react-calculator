@@ -30,6 +30,27 @@ const calculate = (calculator, btn) => {
     }
     operator = btn;
   }
+  if (btn === '%') {
+    if (prev && !operator) {
+      total = operate(prev, null, '%');
+      prev = '0';
+    }
+    if (next) {
+      next = operate(next, null, '%');
+    }
+  }
+
+  if (btn === '+/-') {
+    if (prev && !next) {
+      prev *= -1;
+    }
+
+    if (next) {
+      next *= -1;
+    }
+
+    total *= -1;
+  }
 };
 
 export default calculate;
