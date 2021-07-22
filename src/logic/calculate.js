@@ -51,6 +51,31 @@ const calculate = (calculator, btn) => {
 
     total *= -1;
   }
+
+  if (btn === '=') {
+    total = operate(prev, next, operator);
+    total = formatNumber(total);
+    next = '0';
+    operator = null;
+    prev = '0';
+  }
+
+  if (btn === '.') {
+    if (prev && !prev.includes(btn)) {
+      prev += btn;
+    }
+
+    if (next && !next.includes(btn)) {
+      next += btn;
+    }
+  }
+
+  if (btn === 'AC') {
+    next = null;
+    operator = null;
+    prev = '0';
+    total = null;
+  }
 };
 
 export default calculate;
