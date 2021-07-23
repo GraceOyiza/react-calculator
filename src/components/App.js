@@ -23,17 +23,16 @@ const buttons = [
   '+/-',
   '=',
 ];
-function App() {
-  return (
-    <>
-      <div className="App">
-        <div className="Appcalculator">
-          <Display />
-          <ButtonPannel />
-        </div>
-      </div>
-    </>
-  );
-}
 
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      total: null,
+      prev: '0',
+      next: '0',
+      operator: null,
+    };
+  }
+}
 export default App;
