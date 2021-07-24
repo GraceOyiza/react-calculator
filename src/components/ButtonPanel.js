@@ -1,4 +1,3 @@
-import Button from './Button';
 import PropTypes from 'prop-types';
 
 export default function ButtonPanel({ children }) {
