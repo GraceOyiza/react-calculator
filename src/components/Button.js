@@ -24,4 +24,5 @@ Button.propTypes = {
   name: PropTypes.string.isRequired,
   operator: PropTypes.bool,
   actionBtn: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
 };
