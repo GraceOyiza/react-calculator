@@ -1,5 +1,9 @@
+/* eslint-disable no-unused-vars */
+import React, { useState, Component, Fragment } from 'react';
 import ButtonPannel from './ButtonPanel';
 import Display from './Display';
+import Button from './Button';
+import calculate from '../logic/calculate';
 
 const buttons = [
   'AC',
@@ -23,7 +27,6 @@ const buttons = [
   '+/-',
   '=',
 ];
-
 class App extends Component {
   constructor() {
     super();
@@ -35,10 +38,10 @@ class App extends Component {
     };
   }
 
-  handleDisplay = (prev, next, total, op) => {
+  handledisplay = (prev, next, tot, op) => {
     let ans;
-    if (total) {
-      ans = total;
+    if (tot) {
+      ans = tot;
     } else if (!op) {
       ans = prev;
     } else {
@@ -47,14 +50,35 @@ class App extends Component {
     return ans;
   };
 
+  handleClick = e => {
+    const {
+      total, next, operator, prev,
+    } = this.state;
+    const res = calculate(
+      {
+        total,
+        next,
+        operator,
+        prev,
+      },
+      e.target.value,
+    );
+
+    this.setState({
+      ...res,
+    });
+  };
+
   render() {
-    const { prev, next, total, operator } = this.state;
+    const {
+      prev, next, total, operator,
+    } = this.state;
     return (
       <>
         <div className="App">
           <div className="Appcalculator">
             <Display
-              current={this.handleDisplay(prev, next, total, operator)}
+              current={this.handledisplay(prev, next, total, operator)}
             />
             <ButtonPannel>
               {buttons.map(button => {
@@ -78,4 +102,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;

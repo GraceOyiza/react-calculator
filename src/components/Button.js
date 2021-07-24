@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 
-export default function Button({ name, operator, actionBtn, onClick }) {
+export default function Button({
+  name, operator, actionBtn, onClick,
+}) {
   return (
     <button
       className={`btn ${operator ? 'operatorBtn' : ''} ${
