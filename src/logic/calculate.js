@@ -2,12 +2,12 @@ import operate from './operate';
 import formatNumber from '../helpers/number';
 
 const calculate = (calculator, btn) => {
-  let {
+  let{
     total, next, operator, prev,
   } = calculator;
   const numbers = ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0'];
 
-  const operators = ['/', '*', '+', '-'];
+  const operators = ['/', '*', '+', '-', 'X2'];
 
   if (numbers.includes(btn)) {
     total = null;
@@ -55,6 +55,17 @@ const calculate = (calculator, btn) => {
     total *= -1;
   }
 
+  if (btn === '+/-') {
+    if (prev && !next) {
+      prev *= -1;
+    }
+
+    if (next) {
+      next *= -1;
+    }
+
+    total *= -1;
+  }
   if (btn === '=') {
     total = operate(prev, next, operator);
     total = formatNumber(total);
