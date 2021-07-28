@@ -7,7 +7,7 @@ import calculate from '../logic/calculate';
 
 const buttons = [
   'AC',
-  'X²',
+  '+/-',
   '%',
   '/',
   '9',
@@ -24,7 +24,6 @@ const buttons = [
   '-',
   '0',
   '.',
-  '+/-',
   '=',
 ];
 class App extends Component {
