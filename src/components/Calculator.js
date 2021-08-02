@@ -1,32 +1,17 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ButtonPannel from './ButtonPanel';
 import Display from './Display';
 import Button from './Button';
 import calculate from '../logic/calculate';
 
 const buttons = [
-  'AC',
-  '+/-',
-  '%',
-  '/',
-  '9',
-  '8',
-  '7',
-  '*',
-  '6',
-  '5',
-  '4',
-  '+',
-  '3',
-  '2',
-  '1',
-  '-',
-  '0',
-  '.',
-  '=',
+  ['AC', '+/-', '%', '/'],
+  ['9', '8', '7', '*'],
+  ['6', '5', '4', '+'],
+  ['3', '2', '1', '-'],
+  ['0', '.', '='],
 ];
-class App extends Component {
+class Calculator extends Component {
   constructor() {
     super();
     this.state = {
@@ -53,15 +38,9 @@ class App extends Component {
     const {
       total, next, operator, prev,
     } = this.state;
-    const res = calculate(
-      {
-        total,
-        next,
-        operator,
-        prev,
-      },
-      e.target.value,
-    );
+    const res = calculate({
+      total, next, operator, prev,
+    }, e.target.value);
 
     this.setState({
       ...res,
@@ -75,25 +54,26 @@ class App extends Component {
     return (
       <>
         <div className="App">
-          <div className="Appcalculator">
-            <Display
-              current={this.handledisplay(prev, next, total, operator)}
-            />
+          <div className="App__calculator">
+            <Display current={this.handledisplay(prev, next, total, operator)} />
             <ButtonPannel>
-              {buttons.map(button => {
-                const operators = ['+', '-', '*', '/', '%', 'X²'];
-                const isOperator = operators.includes(button);
-                const isAcBtn = button === 'AC';
-                return (
-                  <Button
-                    onClick={this.handleClick}
-                    key={button}
-                    name={button}
-                    operator={isOperator}
-                    acBtn={isAcBtn}
-                  />
-                );
-              })}
+              {buttons.map(group => (
+                <div key={group} className="row">
+                  {group.map(button => {
+                    const operators = ['+', '-', '*', '/', '='];
+                    const isOperator = operators.includes(button);
+                    return (
+                      <Button
+                        onClick={this.handleClick}
+                        key={button}
+                        name={button}
+                        color={isOperator}
+                        wide={button === '0'}
+                      />
+                    );
+                  })}
+                </div>
+              ))}
             </ButtonPannel>
           </div>
         </div>
@@ -102,4 +82,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Calculator;
