@@ -1,12 +1,9 @@
-
 import {
   Route, BrowserRouter as Router, Switch, Link,
 } from 'react-router-dom';
 import Calculator from './Calculator';
 import Home from './Home';
 import Quote from './Quote';
-
-
 
 export default function App() {
   return (
