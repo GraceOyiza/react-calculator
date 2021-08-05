@@ -1,3 +1,4 @@
+import calculate from '../../logic/calculate';
 import Calculate from '../../logic/calculate';
 
 describe('Calculate', () => {
@@ -68,5 +69,54 @@ describe('Calculate', () => {
     const { total } = Calculate(calculator, '=');
 
     expect(total).not.toEqual('101');
+  });
+
+  test('should work with decimals', () => {
+    calculator.prev = '99';
+    calculator.operator = null;
+    calculator.next = null;
+    const { prev } = Calculate(calculator, '.');
+
+    expect(prev).not.toEqual('99');
+    expect(prev).toEqual('99.');
+  });
+
+  test('should negate a value', () => {
+    calculator.prev = '99';
+    calculator.operator = null;
+    calculator.next = null;
+
+    const { prev } = Calculate(calculator, '+/-');
+
+    expect(prev).not.toBeFalsy()
+    expect(prev).toBeTruthy();
+  });
+
+   test('should divide percentage by 100', () => {
+    calculator.prev = '10';
+    calculator.operator = null;
+    const { total } = Calculate(calculator, '%');
+
+    expect(total).toBe('0.1');
+    expect(total).not.toEqual('10');
+  });
+
+  test('should clear all values', () => {
+    calculator.prev = '10';
+    calculator.operator = null;
+    calculator.next = null;
+    const { prev } = Calculate(calculator, 'AC');
+
+    expect(prev).not.toEqual('10');
+    expect(prev).toBe('0');
+  });
+
+  test('should not divide by 0', () => {
+    calculator.prev = '10';
+    calculator.operator = '/';
+    calculator.next = '0'
+    const res = Calculate(calculator, '=');
+    console.log(res, 'dcdcdcdcdcdcdcedcdcedcewdc')
+    expect(res).toBeTruthy();
   });
 });

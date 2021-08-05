@@ -1,43 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Quote should render without crashing 1`] = `
-Array [
+<DocumentFragment>
   <div
-    className="nav"
+    class="nav"
   >
     <h1
-      className="logo"
+      class="logo"
     >
       Math Magicians
     </h1>
     <div
-      className="nav-links"
+      class="nav-links"
     >
       <a
-        className="nav-link"
+        class="nav-link"
         href="/"
-        onClick={[Function]}
       >
         Home
       </a>
       <a
-        className="nav-link"
+        class="nav-link"
         href="/calculator"
-        onClick={[Function]}
       >
         Calculator
       </a>
       <a
-        className="nav-link"
+        class="nav-link"
         href="/quote"
-        onClick={[Function]}
       >
         Quote
       </a>
     </div>
-  </div>,
+  </div>
   <div
-    className="home"
+    class="home"
   >
     <h1>
       Welcome to our page!
@@ -47,6 +44,6 @@ Array [
         A calculator is a device that performs arithmetic operations.
       </span>
     </p>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
