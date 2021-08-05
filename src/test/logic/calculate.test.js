@@ -1,4 +1,3 @@
-import calculate from '../../logic/calculate';
 import Calculate from '../../logic/calculate';
 
 describe('Calculate', () => {
@@ -88,11 +87,11 @@ describe('Calculate', () => {
 
     const { prev } = Calculate(calculator, '+/-');
 
-    expect(prev).not.toBeFalsy()
+    expect(prev).not.toBeFalsy();
     expect(prev).toBeTruthy();
   });
 
-   test('should divide percentage by 100', () => {
+  test('should divide percentage by 100', () => {
     calculator.prev = '10';
     calculator.operator = null;
     const { total } = Calculate(calculator, '%');
@@ -114,9 +113,8 @@ describe('Calculate', () => {
   test('should not divide by 0', () => {
     calculator.prev = '10';
     calculator.operator = '/';
-    calculator.next = '0'
+    calculator.next = '0';
     const res = Calculate(calculator, '=');
-    console.log(res, 'dcdcdcdcdcdcdcedcdcedcewdc')
     expect(res).toBeTruthy();
   });
 });

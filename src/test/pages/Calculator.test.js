@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Calculator from '../../components/Calculator';
-import Button from '../../components/Button';
 
 describe('Calculator', () => {
   const { asFragment, container } = render(<Calculator />);

@@ -10,24 +10,24 @@ describe('Display', () => {
 
   const setUp = () => {
     page = render(<Display memor={memor} current={current} />);
-  }
+  };
 
-   test('should render', () => {
-     setUp()
+  test('should render', () => {
+    setUp();
     const displayElement = page.container.querySelector('.display');
     expect(displayElement).toBeTruthy();
-     expect(displayElement).not.toBeFalsy();
+    expect(displayElement).not.toBeFalsy();
   });
 
   test('should render memor prop', () => {
-    setUp()
+    setUp();
     const memorElement = page.container.querySelector('.displayupper');
     expect(memorElement.textContent).toBe(memor);
     expect(memorElement.textContent).not.toBeFalsy();
   });
 
   test('should render current prop', () => {
-    setUp()
+    setUp();
     const currentElement = page.container.querySelector('.displaylower');
     expect(currentElement.textContent).toBe(current);
     expect(currentElement.textContent).not.toBeFalsy(current);
