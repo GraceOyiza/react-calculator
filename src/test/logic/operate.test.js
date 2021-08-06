@@ -26,7 +26,7 @@ describe('Operate', () => {
     expect(answer.toString()).toEqual('2');
   });
 
-   test('should return the correct division value', () => {
+  test('should return the correct division value', () => {
     const answer = Operation('4', '2', '/');
     expect(answer.toString()).not.toEqual('90');
   });

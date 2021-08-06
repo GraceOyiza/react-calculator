@@ -42,7 +42,7 @@ describe('Display', () => {
     expect(currentElement.textContent).toBe(current);
   });
 
-   test('current prop should not be blank', () => {
+  test('current prop should not be blank', () => {
     setUp();
     const currentElement = page.container.querySelector('.displaylower');
     expect(currentElement.textContent).not.toBeFalsy();

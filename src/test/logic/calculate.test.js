@@ -116,7 +116,7 @@ describe('Calculate', () => {
     expect(total).toBe('0.1');
   });
 
-   test('% btn should not return the original value', () => {
+  test('% btn should not return the original value', () => {
     calculator.prev = '10';
     calculator.operator = null;
     const { total } = Calculate(calculator, '%');
