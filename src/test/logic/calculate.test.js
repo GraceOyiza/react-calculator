@@ -76,8 +76,16 @@ describe('Calculate', () => {
     calculator.next = null;
     const { prev } = Calculate(calculator, '.');
 
-    expect(prev).not.toEqual('99');
     expect(prev).toEqual('99.');
+  });
+
+  test('should should add decimal when . is pressed', () => {
+    calculator.prev = '99';
+    calculator.operator = null;
+    calculator.next = null;
+    const { prev } = Calculate(calculator, '.');
+
+    expect(prev).not.toEqual('99');
   });
 
   test('should negate a value', () => {
@@ -88,6 +96,15 @@ describe('Calculate', () => {
     const { prev } = Calculate(calculator, '+/-');
 
     expect(prev).not.toBeFalsy();
+  });
+
+  test('should negated value should not be falsy', () => {
+    calculator.prev = '99';
+    calculator.operator = null;
+    calculator.next = null;
+
+    const { prev } = Calculate(calculator, '+/-');
+
     expect(prev).toBeTruthy();
   });
 
@@ -97,6 +114,13 @@ describe('Calculate', () => {
     const { total } = Calculate(calculator, '%');
 
     expect(total).toBe('0.1');
+  });
+
+   test('% btn should not return the original value', () => {
+    calculator.prev = '10';
+    calculator.operator = null;
+    const { total } = Calculate(calculator, '%');
+
     expect(total).not.toEqual('10');
   });
 
@@ -106,8 +130,16 @@ describe('Calculate', () => {
     calculator.next = null;
     const { prev } = Calculate(calculator, 'AC');
 
-    expect(prev).not.toEqual('10');
     expect(prev).toBe('0');
+  });
+
+  test('AC button should clear current value', () => {
+    calculator.prev = '10';
+    calculator.operator = null;
+    calculator.next = null;
+    const { prev } = Calculate(calculator, 'AC');
+
+    expect(prev).not.toEqual('10');
   });
 
   test('should not divide by 0', () => {

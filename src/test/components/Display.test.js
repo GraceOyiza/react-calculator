@@ -16,6 +16,11 @@ describe('Display', () => {
     setUp();
     const displayElement = page.container.querySelector('.display');
     expect(displayElement).toBeTruthy();
+  });
+
+  test('should render', () => {
+    setUp();
+    const displayElement = page.container.querySelector('.display');
     expect(displayElement).not.toBeFalsy();
   });
 
@@ -23,6 +28,11 @@ describe('Display', () => {
     setUp();
     const memorElement = page.container.querySelector('.displayupper');
     expect(memorElement.textContent).toBe(memor);
+  });
+
+  test('memor prop should not be blank', () => {
+    setUp();
+    const memorElement = page.container.querySelector('.displayupper');
     expect(memorElement.textContent).not.toBeFalsy();
   });
 
@@ -30,6 +40,11 @@ describe('Display', () => {
     setUp();
     const currentElement = page.container.querySelector('.displaylower');
     expect(currentElement.textContent).toBe(current);
-    expect(currentElement.textContent).not.toBeFalsy(current);
+  });
+
+   test('current prop should not be blank', () => {
+    setUp();
+    const currentElement = page.container.querySelector('.displaylower');
+    expect(currentElement.textContent).not.toBeFalsy();
   });
 });
